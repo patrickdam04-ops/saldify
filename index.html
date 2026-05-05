@@ -314,12 +314,23 @@
         </tbody>
       </table>
 
+      <!-- Billing toggle -->
+      <div class="billing-toggle rv">
+        <span class="billing-label" id="labelMonthly">Mensile</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="billingToggle">
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="billing-label" id="labelAnnual">Annuale</span>
+        <span class="billing-save">-15%</span>
+      </div>
+
       <!-- Pricing cards -->
       <div class="pricing-grid">
         <!-- Starter -->
         <div class="price-card rv">
           <p class="plan-name">Starter</p>
-          <p class="plan-price">€99 <span>/mese</span></p>
+          <p class="plan-price"><span class="price-value" data-monthly="99" data-annual="84">€99</span> <span>/mese</span></p>
           <p class="plan-setup">€197 setup una tantum</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Fino a 30 fatture/mese</li>
@@ -341,7 +352,7 @@
           <span class="price-badge">Più scelto</span>
           <div class="card-inner">
             <p class="plan-name">Pro</p>
-            <p class="plan-price">€199 <span>/mese</span></p>
+            <p class="plan-price"><span class="price-value" data-monthly="199" data-annual="169">€199</span> <span>/mese</span></p>
             <p class="plan-setup"><s>€390</s> <strong style="color:var(--amber);font-size:1.1rem;">GRATUITO</strong></p>
             <ul class="price-features">
               <li><span class="check">✓</span> Fatture illimitate</li>
@@ -362,7 +373,7 @@
         <!-- Agency -->
         <div class="price-card rv">
           <p class="plan-name">Agency</p>
-          <p class="plan-price">€349 <span>/mese</span></p>
+          <p class="plan-price"><span class="price-value" data-monthly="499" data-annual="424">€499</span> <span>/mese</span></p>
           <p class="plan-setup">€790 setup una tantum</p>
           <ul class="price-features">
             <li><span class="check">✓</span> Tutto il piano Pro</li>
@@ -374,7 +385,7 @@
             <li><span class="check">✓</span> Onboarding dedicato</li>
           </ul>
           <div class="plan-cta">
-            <a href="#demo" class="gbtn" style="width:100%;justify-content:center;">Contattaci</a>
+            <a href="#demo" class="gbtn" style="width:100%;justify-content:center;">Richiedi info</a>
           </div>
         </div>
       </div>
@@ -498,6 +509,28 @@
         }
       });
     });
+
+    // Billing toggle — monthly/annual
+    (function() {
+      var toggle = document.getElementById('billingToggle');
+      var labelM = document.getElementById('labelMonthly');
+      var labelA = document.getElementById('labelAnnual');
+      if (!toggle) return;
+
+      toggle.addEventListener('change', function() {
+        var isAnnual = toggle.checked;
+        labelM.classList.toggle('active', !isAnnual);
+        labelA.classList.toggle('active', isAnnual);
+
+        document.querySelectorAll('.price-value').forEach(function(el) {
+          var price = isAnnual ? el.dataset.annual : el.dataset.monthly;
+          el.textContent = '€' + price;
+        });
+      });
+
+      // Init state
+      labelM.classList.add('active');
+    })();
   </script>
 
   <a href="https://wa.me/393780111216" target="_blank" class="wa-fab" aria-label="Scrivimi su WhatsApp">
