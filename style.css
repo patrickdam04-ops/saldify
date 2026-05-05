@@ -690,6 +690,26 @@ body::before {
   letter-spacing: 0.02em;
 }
 
+/* Privacy badge (GDPR) */
+.privacy-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  color: #10B981;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.privacy-badge svg {
+  flex-shrink: 0;
+}
+
 /* Dunning steps */
 .dunning-steps {
   display: grid;
