@@ -1530,6 +1530,9 @@ body::before {
   /* Navbar */
   .navbar {
     padding: 14px 20px;
+    background: rgba(6, 10, 15, 0.98);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
   }
 
   .nav-links {
