@@ -410,7 +410,7 @@
       <h2 class="section-h2 rv">Una persona reale,<br>non una <span class="accent">corporation.</span></h2>
 
       <div class="founder-card rv">
-        <div class="founder-avatar">PD</div>
+        <img src="foto.patrick.jpeg" alt="Patrick Damiani" class="founder-avatar photo" id="founderPhoto">
         <div class="founder-info">
           <p class="founder-name">Patrick Damiani</p>
           <p class="founder-role">Founder & CEO — Saldify · Esperto in Automazioni IA</p>
@@ -537,6 +537,36 @@
     </svg>
     <span class="wa-fab-text">Scrivimi</span>
   </a>
+
+  <!-- Lightbox Modal -->
+  <div class="photo-lightbox" id="photoLightbox">
+    <div class="lightbox-close" id="lightboxClose">×</div>
+    <img src="foto.patrick.jpeg" alt="Patrick Damiani" class="lightbox-img">
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var photo = document.getElementById('founderPhoto');
+      var lightbox = document.getElementById('photoLightbox');
+      var closeBtn = document.getElementById('lightboxClose');
+
+      if (photo && lightbox && closeBtn) {
+        photo.addEventListener('click', function() {
+          lightbox.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', function() {
+          lightbox.classList.remove('active');
+        });
+
+        lightbox.addEventListener('click', function(e) {
+          if (e.target === lightbox) {
+            lightbox.classList.remove('active');
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>

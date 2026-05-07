@@ -1351,6 +1351,19 @@ body::before {
   font-weight: 400;
 }
 
+.founder-avatar.photo {
+  object-fit: cover;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.founder-avatar.photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+}
+
 .founder-info {
   display: flex;
   flex-direction: column;
@@ -1845,4 +1858,56 @@ body::before {
 
 .wa-fab svg {
   flex-shrink: 0;
+}
+
+/* ============================================
+   PHOTO LIGHTBOX
+   ============================================ */
+.photo-lightbox {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(3, 5, 7, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.photo-lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+  object-fit: contain;
+}
+
+.photo-lightbox.active .lightbox-img {
+  transform: scale(1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: var(--font-sans);
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  color: var(--amber);
 }
