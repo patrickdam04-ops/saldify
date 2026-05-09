@@ -1821,8 +1821,8 @@ body::before {
    ============================================ */
 .wa-fab {
   position: fixed;
-  bottom: 24px;
-  right: 24px;
+  bottom: 10px;
+  right: 10px;
   display: flex;
   align-items: center;
   gap: 0;
