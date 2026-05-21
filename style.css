@@ -1817,6 +1817,35 @@ body::before {
 }
 
 /* ============================================
+   WHATSAPP INLINE BUTTON
+   ============================================ */
+.wa-inline-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.wa-inline-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+}
+
+.wa-inline-btn svg {
+  flex-shrink: 0;
+}
+
+/* ============================================
    WHATSAPP FLOATING BUTTON
    ============================================ */
 .wa-fab {
